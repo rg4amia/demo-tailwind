@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/custom.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              stokelightblue: "#E1EFFC",
+              greenVh: "#1D8C6B",
+              grayDescription: "#5F6D7E",
+              "gray-mid-description": "#5f6d7e",
+              jauneVh: "#CFAE1F",
+              blueVh: "#0B85F5",
+              bg: "#F6F7F9",
+              "base-white": "#fff",
+              "stroke-bulto": "#c9dce0",
+              "stroke-light-blue": "#e1effc",
+              "green-vh": "#1d8c6b",
+              "light-gray-bg": "#f6f7f9",
+              "light-background-secondary": "#f2f3f5",
+              "theme-black": "#000",
+              "theme-primary": "#5865f2",
+            },
+            fontFamily: {
+              outfit: ["Outfit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-outfit min-h-screen">
+    <div class="flex">
+      <!-- Sidebar -->
+      <div
+        class="fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 overflow-y-auto"
+      >
+        <div class="py-4 px-6">
+          <a href="/" class="flex items-center">
+            <img
+              src="./assets/img/logos/logo.png"
+              alt="Logo"
+              class="w-[136px] h-auto"
+            />
+          </a>
+          <span class="absolute bottom-0 left-20 top-16 text-sm"
+            >Super admins</span
+          >
+        </div>
+
+        <div class="mt-6">
+          <!-- Dashboard Link -->
+          <div class="ml-2 mr-3">
+            <a
+              href="dashboard.html"
+              class="flex items-center px-8 py-2.5 text-grayDescription hover:text-greenVh group"
+              aria-label="Dashboard"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Dashboard Icon"
+                src="./assets/icons/icon-gray-dashboard.svg"
+              />
+              Tableau de bord
+            </a>
+          </div>
+
+          <!-- Enregistrements Link -->
+          <div class="ml-2 mr-3 mt-1 bg-jauneVh rounded-lg">
+            <a
+              href="/"
+              class="flex items-center px-8 py-2.5 text-white hover:text-greenVh group"
+              aria-label="Enregistrements"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Enregistrements Icon"
+                src="./assets/icons/icon_white_akouo.svg"
+              />
+              Enregistrements
+            </a>
+          </div>
+
+          <!-- Entités Link -->
+          <div class="ml-2 mr-3 mt-1">
+            <a
+              href="/"
+              class="flex items-center px-8 py-2.5 text-greenVh hover:text-greenVh group"
+              aria-label="Entités"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Entités Icon"
+                src="./assets/icons/entite.svg"
+              />
+              Entités
+            </a>
+          </div>
+
+          <!-- Utilisateurs Link -->
+          <div class="ml-2 mr-3 mt-1">
+            <a
+              href="/"
+              class="flex items-center px-8 py-2.5 text-blueVh hover:text-greenVh group"
+              aria-label="Utilisateurs"
+            >
+              <svg
+                class="h-5 w-6 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+                />
+              </svg>
+
+              <!--img
+                class="h-5 w-5"
+                loading="lazy"
+                alt="Utilisateurs Icon"
+                src="./assets/icons/users.svg"
+              /-->
+              Utilisateurs
+            </a>
+          </div>
+        </div>
+
+        <div class="ml-8 mr-3 mt-1 absolute bottom-5">
+          <a
+            class="w-[183px] h-10 rounded-lg border-whitesmoke border-[2px] border-solid box-border overflow-hidden flex flex-row items-start justify-start py-3 px-1.5 gap-[5px] leading-[normal] tracking-[normal] cursor-pointer text-left text-[12px] text-blackish font-outfit"
+            id="frameContainer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 relative overflow-hidden shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
+              />
+            </svg>
+
+            <button class="w-[146px] items-center box-border mb-5">
+              Se déconnecter
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="ml-64 flex-1 min-h-screen">
+        <header
+          class="sticky top-0 bg-white z-10 flex justify-between py-3 px-6 space-x-6 border-b border-gray-200"
+        >
+          <!-- User Profile -->
+          <div class="flex items-center gap-3">
+            <div
+              class="relative rounded-lg bg-white border-text-unselected border-[2px] border-solid box-border w-full overflow-hidden flex flex-row items-start justify-start p-1 gap-2.5 text-left text-sm text-gray-mid-description font-medium-subtitle"
+            >
+              <img
+                class="w-5 relative h-4 overflow-hidden shrink-0"
+                alt=""
+                src="assets/icons/arrow-left.svg"
+              />
+              <div
+                class="flex flex-row items-center justify-start cursor-pointer"
+                id="frameContainer"
+              >
+                <div class="relative leading-[20px] font-medium">Retour</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <div class="relative">
+            <button
+              class="w-[40px] h-10 flex items-center justify-end bg-jauneVh rounded-full text-sm text-white p-2"
+              aria-label="Notifications"
+            >
+              <svg
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="16"
+                viewBox="0 0 14 16"
+                fill="currentColor"
+              >
+                <path
+                  d="M13.445,7.447A3.185,3.185,0,0,1,14,9.088l-.022.148a3.252,3.252,0,0,1-.774,2.2,4.069,4.069,0,0,1-2.572,1.232,34.465,34.465,0,0,1-7.306,0A4.022,4.022,0,0,1,.8,11.439,3.207,3.207,0,0,1,0,9.249v-.1A3.3,3.3,0,0,1,.6,7.469L.659,7.4A3.035,3.035,0,0,0,1.389,5.99V4.54a.631.631,0,0,1,.653-.381.619.619,0,0,1,.553.507v1.45a.353.353,0,0,1,0,.077A4.166,4.166,0,0,1,1.586,8.151a1.982,1.982,0,0,0-.321,1v.155a2.022,2.022,0,0,0,.482,1.373,2.768,2.768,0,0,0,1.71.788,33.927,33.927,0,0,0,7.073,0,2.773,2.773,0,0,0,1.746-.824,2,2,0,0,0,.46-1.33V9.151a2.056,2.056,0,0,0-.314-1.007,4.175,4.175,0,0,1-1.067-1.957.358.358,0,0,1,0-.077V4.653C11.143,2.527,8.944,1.211,7.03,1.211a4.853,4.853,0,0,0-2.323.584.649.649,0,0,1-.639,0A.595.595,0,0,1,4.093.739,6.108,6.108,0,0,1,6.971,0C9.5,0,12.334,1.732,12.656,4.512v1.45a2.973,2.973,0,0,0,.731,1.408A.538.538,0,0,1,13.445,7.447Zm-6.238,7.3a1.641,1.641,0,0,0,1.072-.624h.007a.647.647,0,0,1,.888-.081.592.592,0,0,1,.084.855,2.926,2.926,0,0,1-4.581,0,.592.592,0,0,1,.084-.855.647.647,0,0,1,.888.081,1.661,1.661,0,0,0,1.558.624Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+              <span
+                class="w-5 h-5 absolute top-0 right-[-7.55%] rounded-full bg-greenVh text-white text-xs border-white border-[2px] flex items-center justify-center"
+              >
+                21
+              </span>
+            </button>
+          </div>
+        </header>
+
+        <main class="p-4">
+          <div class="flex flex-row items-start">
+            <!-- User Profile -->
+            <div class="flex items-center gap-3 border-r pr-8">
+              <img
+                class="w-10 h-10 object-cover"
+                alt="Ellipse"
+                src="./assets/img/ellipse.png"
+              />
+              <div class="flex-col items-start justify-center">
+                <div class="text-grayDescription text-sm">Josianne</div>
+                <div class="font-bold text-black text-xl">KONE</div>
+              </div>
+            </div>
+            <div class="flex flex-col ml-3 justify-between space-y-2">
+              <p
+                class="text-greenVh font-bold text-[12px] text-center p-1 bg-gray-200 rounded-lg w-16"
+              >
+                Djiby 8
+              </p>
+              <div
+                class="text-[12px] font-semibold text-gray-mid-description text-left"
+              >
+                Angré 8ème Tranche
+              </div>
+            </div>
+            <div
+              class="flex w-[318px] h-[60px] rounded-full border border-light-gray-bg mr-2 ml-5"
+            ></div>
+            <div class="item-center pt-2">
+              <p class="w-[57px] text-[12px] text-gray text-left font-bold">
+                Note globale
+              </p>
+            </div>
+            <div
+              class="rounded-lg bg-stroke-light-blue border-blueVh border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 text-left text-[12px] text-blueVh"
+            >
+              <div class="font-semibold">Bon</div>
+            </div>
+          </div>
+          <div class="flex flex-col mt-4 items-start">
+            <div class="flex items-center">
+              <img
+                class="h-5 w-5 mr-2"
+                src="./assets/icons/message-detail.svg"
+              />
+              <p class="text-greenVh">Descriptif enregistreur</p>
+            </div>
+            <span class="text-xs text-gray-mid-description tracking-wide"
+              >Informations de l’enregistrement</span
+            >
+          </div>
+          <div class="flex mt-4 flex-wrap">
+            <div class="mb-4 relative mr-2">
+              <label for="titre" class="block text-gray-700 font-semibold mb-2">
+                Titre
+              </label>
+              <input
+                type="text"
+                id="titre"
+                name="titre"
+                placeholder="CE_Djiby8_Enr0123"
+                class="w-[350px] relative rounded-lg bg-light-gray-bg overflow-hidden flex flex-col items-start justify-start p-3 box-border text-left text-[14px] text-gray-mid-description font-inter"
+              />
+            </div>
+
+            <div class="mb-4 relative mr-2">
+              <label for="theme" class="block text-gray-700 font-semibold mb-2">
+                Thème
+              </label>
+              <input
+                type="text"
+                id="theme"
+                name="theme"
+                placeholder="Overflow, le débordement divin"
+                class="w-[350px] relative rounded-lg bg-light-gray-bg overflow-hidden flex flex-col items-start justify-start p-3 box-border text-left text-[14px] text-gray-mid-description font-inter"
+              />
+            </div>
+
+            <div class="mb-4 relative mr-2">
+              <label
+                for="verset"
+                class="block text-gray-700 font-semibold mb-2"
+              >
+                Verset de base
+              </label>
+              <input
+                type="text"
+                id="verset"
+                name="verset"
+                placeholder="Psaume 23"
+                class="w-[200px] relative rounded-lg bg-light-gray-bg overflow-hidden flex flex-col items-start justify-start p-3 box-border text-left text-[14px] text-gray-mid-description font-inter"
+              />
+            </div>
+
+            <div class="mb-4 mr-2 relative">
+              <label
+                for="source"
+                class="block text-gray-700 font-semibold mb-2"
+              >
+                Source (dévotionnel, livre, etc...)
+              </label>
+              <input
+                type="text"
+                id="source"
+                name="source"
+                placeholder="Psaume 23"
+                class="w-[350px] relative rounded-lg bg-light-gray-bg overflow-hidden flex flex-col items-start justify-start p-3 box-border text-left text-[14px] text-gray-mid-description font-inter"
+              />
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
