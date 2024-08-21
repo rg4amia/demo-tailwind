@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/custom.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              stokelightblue: "#E1EFFC",
+              greenVh: "#1D8C6B",
+              grayDescription: "#5F6D7E",
+              "gray-mid-description": "#5f6d7e",
+              jauneVh: "#CFAE1F",
+              blueVh: "#0B85F5",
+              bg: "#F6F7F9",
+              "base-white": "#fff",
+              "stroke-bulto": "#c9dce0",
+              "stroke-light-blue": "#e1effc",
+              "green-vh": "#1d8c6b",
+              "light-gray-bg": "#f6f7f9",
+              "light-background-secondary": "#f2f3f5",
+              "theme-black": "#000",
+              "theme-primary": "#5865f2",
+              "red-vh": "#8A262E",
+              "light-gray": "#e9ebf0",
+              goldenrod: "#cfae1f",
+              "light-stroke": '#dae0e6',
+              "grayish-middle": '#5f6d7e'
+            },
+            fontFamily: {
+              outfit: ["Outfit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-outfit min-h-screen">
+    <div class="flex">
+      <!-- Sidebar -->
+      <div
+        class="fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 overflow-y-auto"
+      >
+        <div class="py-4 px-6">
+          <a href="/" class="flex items-center">
+            <img
+              src="./assets/img/logos/logo.png"
+              alt="Logo"
+              class="w-[136px] h-auto"
+            />
+          </a>
+          <span class="absolute bottom-0 left-20 top-16 text-sm"
+            >Super admins</span
+          >
+        </div>
+
+        <div class="mt-6">
+          <!-- Dashboard Link -->
+          <div class="ml-2 mr-3">
+            <a
+              href="dashboard.html"
+              class="flex items-center px-8 py-2.5 text-grayDescription hover:text-greenVh group"
+              aria-label="Dashboard"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Dashboard Icon"
+                src="./assets/icons/icon-gray-dashboard.svg"
+              />
+              Tableau de bord
+            </a>
+          </div>
+
+          <!-- Enregistrements Link -->
+          <div class="ml-2 mr-3 mt-1">
+            <a
+              href="enregistrement.html"
+              class="flex items-center px-8 py-2.5 text-jauneVh hover:text-greenVh group"
+              aria-label="Enregistrements"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Enregistrements Icon"
+                src="./assets/icons/akouo_icon.png"
+              />
+              Enregistrements
+            </a>
+          </div>
+
+          <!-- Entités Link -->
+          <div class="ml-2 mr-3 mt-1">
+            <a
+              href="/"
+              class="flex items-center px-8 py-2.5 text-greenVh hover:text-greenVh group"
+              aria-label="Entités"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Entités Icon"
+                src="./assets/icons/entite.svg"
+              />
+              Entités
+            </a>
+          </div>
+
+          <!-- Utilisateurs Link -->
+          <div class="ml-2 mr-3 mt-1 bg-jauneVh rounded-lg">
+            <a
+              href="/"
+              class="flex items-center px-8 py-2.5 text-white hover:text-greenVh group"
+              aria-label="Utilisateurs"
+            >
+              <svg
+                class="h-5 w-6 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+                />
+              </svg>
+
+              <!--img
+                class="h-5 w-5"
+                loading="lazy"
+                alt="Utilisateurs Icon"
+                src="./assets/icons/users.svg"
+              /-->
+              Utilisateurs
+            </a>
+          </div>
+        </div>
+
+        <div class="ml-8 mr-3 mt-1 absolute bottom-5">
+          <a
+            class="w-[183px] h-10 rounded-lg border-whitesmoke border-[2px] border-solid box-border overflow-hidden flex flex-row items-start justify-start py-3 px-1.5 gap-[5px] leading-[normal] tracking-[normal] cursor-pointer text-left text-[12px] text-blackish font-outfit"
+            id="frameContainer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 relative overflow-hidden shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
+              />
+            </svg>
+
+            <button class="w-[146px] items-center box-border mb-5">
+              Se déconnecter
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="ml-64 flex-1 min-h-screen">
+        <header
+          class="sticky top-0 bg-white z-10 flex justify-between py-3 px-6 space-x-6 border-b border-gray-200"
+        >
+          <!-- User Profile -->
+          <div class="flex items-center gap-3">
+            <img
+              class="w-10 h-10 object-cover"
+              alt="Ellipse"
+              src="./assets/img/ellipse.png"
+            />
+            <div class="flex-col items-start justify-center">
+              <div class="text-grayDescription text-sm">Bienvenue</div>
+              <div class="font-bold text-black text-xl">Joel KOFFI</div>
+            </div>
+            <img
+              class="w-6 h-6"
+              alt="Smiling face with halo"
+              src="./assets/icons/smiling-face-with-halo.png"
+            />
+          </div>
+
+          <!-- Notifications -->
+          <div class="relative">
+            <button
+              class="w-[40px] h-10 flex items-center justify-end bg-jauneVh rounded-full text-sm text-white p-2"
+              aria-label="Notifications"
+            >
+              <svg
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="16"
+                viewBox="0 0 14 16"
+                fill="currentColor"
+              >
+                <path
+                  d="M13.445,7.447A3.185,3.185,0,0,1,14,9.088l-.022.148a3.252,3.252,0,0,1-.774,2.2,4.069,4.069,0,0,1-2.572,1.232,34.465,34.465,0,0,1-7.306,0A4.022,4.022,0,0,1,.8,11.439,3.207,3.207,0,0,1,0,9.249v-.1A3.3,3.3,0,0,1,.6,7.469L.659,7.4A3.035,3.035,0,0,0,1.389,5.99V4.54a.631.631,0,0,1,.653-.381.619.619,0,0,1,.553.507v1.45a.353.353,0,0,1,0,.077A4.166,4.166,0,0,1,1.586,8.151a1.982,1.982,0,0,0-.321,1v.155a2.022,2.022,0,0,0,.482,1.373,2.768,2.768,0,0,0,1.71.788,33.927,33.927,0,0,0,7.073,0,2.773,2.773,0,0,0,1.746-.824,2,2,0,0,0,.46-1.33V9.151a2.056,2.056,0,0,0-.314-1.007,4.175,4.175,0,0,1-1.067-1.957.358.358,0,0,1,0-.077V4.653C11.143,2.527,8.944,1.211,7.03,1.211a4.853,4.853,0,0,0-2.323.584.649.649,0,0,1-.639,0A.595.595,0,0,1,4.093.739,6.108,6.108,0,0,1,6.971,0C9.5,0,12.334,1.732,12.656,4.512v1.45a2.973,2.973,0,0,0,.731,1.408A.538.538,0,0,1,13.445,7.447Zm-6.238,7.3a1.641,1.641,0,0,0,1.072-.624h.007a.647.647,0,0,1,.888-.081.592.592,0,0,1,.084.855,2.926,2.926,0,0,1-4.581,0,.592.592,0,0,1,.084-.855.647.647,0,0,1,.888.081,1.661,1.661,0,0,0,1.558.624Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+              <span
+                class="w-5 h-5 absolute top-0 right-[-7.55%] rounded-full bg-greenVh text-white text-xs border-white border-[2px] flex items-center justify-center"
+              >
+                21
+              </span>
+            </button>
+          </div>
+        </header>
+
+        <main>
+          <div class="flex flex-col items-start m-4" role="group">
+            <div class="flex flex-row justify-between items-center w-full">
+              <div>
+                <div
+                  class="font-outfit text-2xl font-semibold flex items-center"
+                >
+                  <svg
+                    class="h-5 w-5 mr-2 fill-blueVh"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z"
+                    />
+                  </svg>
+                  Liste des utilisateurs
+                </div>
+                <p class="text-xs text-gray-mid-description">
+                  Vue générale de tous les utilisateurs
+                </p>
+              </div>
+              <div class="gap-6">
+                <button
+                  class="relative rounded-lg bg-blueVh w-full overflow-hidden flex flex-col items-start justify-start py-2 px-4 box-border cursor-pointer text-left text-[12px] text-white font-outfit"
+                  id="openModal"
+                >
+                  <div class="flex flex-row items-center justify-start gap-2">
+                    <div class="bg-white rounded-md">
+                      <img
+                        class="w-5 relative h-5 overflow-hidden shrink-0"
+                        alt=""
+                        src="./assets/icons/btn_icon_users.svg"
+                      />
+                    </div>
+                    <div class="relative font-semibold">
+                      Créer un utilisateur
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="relative font-outfit m-3 flex">
+              <input
+                type="text"
+                id="seach"
+                name="seach"
+                placeholder="Recherche..."
+                class="w-[400px] px-10 py-2 border border-stokelightblue rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E1EFFC]"
+              />
+
+              <div
+                class="inset-y-0 left-10 pl-3 top-0 flex items-center pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-5 text-grayDescription"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div
+              class="w-full bg-base-white max-w-full flex flex-row flex-wrap items-center justify-center py-3 gap-3 border mt-2 rounded-lg tracking-[normal] text-left text-xs text-gray-mid-description font-outfit"
+            >
+              <div class="relative text-[16px] font-medium text-black px-4">
+                Liste des utilisateurs
+              </div>
+
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Envoyé par</option>
+              </select>
+
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Pays</option>
+              </select>
+
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Cellule</option>
+              </select>
+              <select
+                placeholder="Cellule"
+                class="w-[140px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Type d'utilisateur</option>
+              </select>
+
+              <select
+                placeholder="Cellule"
+                class="w-[140px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Catégorie d'utilisateur</option>
+              </select>
+              <select
+                placeholder="Cellule"
+                class="w-[140px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Entité(s) affectée(s)</option>
+              </select>
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Décision</option>
+              </select>
+              <div class="">
+                <svg
+                  class="w-6 h-6 overflow-hidden shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </div>
+
+              <table class="min-w-full bg-white border-t mt-1">
+                <thead>
+                  <tr class="text-xs border-b">
+                    <th class="py-3 px-6 text-left border-r">NOM, Prénoms</th>
+                    <th class="py-3 px-6 text-left border-r">Pays</th>
+                    <th class="py-3 px-6 text-left border-r">Cellule</th>
+                    <th class="py-3 px-6 text-left border-r">
+                      Type d’utilisateur
+                    </th>
+                    <th class="py-3 px-6 text-left border-r">
+                      Catégorie utilisateur
+                    </th>
+                    <th class="py-3 px-6 text-left border-r">
+                      Entité(s) affectée(s)
+                    </th>
+                    <th class="py-3 px-6 text-left border-r">Décision</th>
+                    <th class="py-3 px-6 text-left border-r">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-600 text-xs">
+                  <tr class="">
+                    <td class="py-1 px-6 border">
+                      <a class="font-bold">Josianne KONE</a>
+                      <div class="bg-slate-50 rounded-lg w-full">
+                        +225 07 44 55 66 77
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-light-gray-bg flex flex-row items-center justify-center py-1 px-2 box-border text-[10px] text-green-vh"
+                      >
+                        <div class="font-semibold">Djiby 8</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center py-1 px-2 gap-2.5"
+                      >
+                        <div class="relative font-semibold">
+                          Angré 8ème Tranche
+                        </div>
+                        <img
+                          class="w-[8.2px] h-[4.1px] hidden"
+                          alt=""
+                          src="Icon.svg"
+                        />
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border"></td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="w-full py-3 px-4 text-left text-[10px] text-gray-mid-description"
+                      >
+                        <div class="font-medium inline-block">
+                          Le verset n’est pas trop claire. Mieux préciser le
+                          verset de base.
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative border-neutral-600 h-[79px] flex flex-row items-center justify-start py-3 px-4 gap-2 text-center text-xs text-blackish font-outfit-semibold-12"
+                      >
+                        <div
+                          class="rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid flex flex-row items-center justify-center p-3 gap-1"
+                        >
+                          <img
+                            class="w-4 relative h-4 overflow-hidden shrink-0"
+                            alt=""
+                            src="./assets/icons/eye.svg"
+                          />
+                          <div class="w-[23px] relative font-semibold hidden">
+                            Voir
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col items-start justify-end gap-1.5 text-left text-sm text-gray-700 font-text-s-medium"
+                        >
+                          <div
+                            class="self-stretch shadow-[0px_1px_2px_rgba(16,_24,_40,_0.04)] rounded-lg bg-base-white border-red-delete border-[2px] border-solid box-border h-10 flex flex-row items-center justify-start p-2.5 gap-3"
+                          >
+                            <img
+                              class="w-5 relative h-5 overflow-hidden shrink-0"
+                              alt=""
+                              src="./assets/icons/delete.svg"
+                            />
+                          </div>
+                          <div
+                            class="w-[59px] relative tracking-[-0.1px] leading-[20px] font-medium hidden"
+                          >
+                            Headline
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-6 border">
+                      <a class="font-bold">Josianne KONE</a>
+                      <div class="bg-slate-50 rounded-lg w-full">
+                        +225 07 44 55 66 77
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-light-gray-bg flex flex-row items-center justify-center py-1 px-2 box-border text-[10px] text-green-vh"
+                      >
+                        <div class="font-semibold">Djiby 8</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center py-1 px-2 gap-2.5"
+                      >
+                        <div class="relative font-semibold">
+                          Angré 8ème Tranche
+                        </div>
+                        <img
+                          class="w-[8.2px] h-[4.1px] hidden"
+                          alt=""
+                          src="Icon.svg"
+                        />
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border"></td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="w-full py-3 px-4 text-left text-[10px] text-gray-mid-description"
+                      >
+                        <div class="font-medium inline-block">
+                          Le verset n’est pas trop claire. Mieux préciser le
+                          verset de base.
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative border-neutral-600 h-[79px] flex flex-row items-center justify-start py-3 px-4 gap-2 text-center text-xs text-blackish font-outfit-semibold-12"
+                      >
+                        <div
+                          class="rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid flex flex-row items-center justify-center p-3 gap-1"
+                        >
+                          <img
+                            class="w-4 relative h-4 overflow-hidden shrink-0"
+                            alt=""
+                            src="./assets/icons/eye.svg"
+                          />
+                          <div class="w-[23px] relative font-semibold hidden">
+                            Voir
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col items-start justify-end gap-1.5 text-left text-sm text-gray-700 font-text-s-medium"
+                        >
+                          <div
+                            class="self-stretch shadow-[0px_1px_2px_rgba(16,_24,_40,_0.04)] rounded-lg bg-base-white border-red-delete border-[2px] border-solid box-border h-10 flex flex-row items-center justify-start p-2.5 gap-3"
+                          >
+                            <img
+                              class="w-5 relative h-5 overflow-hidden shrink-0"
+                              alt=""
+                              src="./assets/icons/delete.svg"
+                            />
+                          </div>
+                          <div
+                            class="w-[59px] relative tracking-[-0.1px] leading-[20px] font-medium hidden"
+                          >
+                            Headline
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-6 border-[1px]">
+                      <a class="font-bold">Josianne KONE</a>
+                      <div class="bg-slate-50 rounded-lg w-full">
+                        +225 07 44 55 66 77
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-light-gray-bg flex flex-row items-center justify-center py-1 px-2 box-border text-[10px] text-green-vh"
+                      >
+                        <div class="font-semibold">Djiby 8</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center py-1 px-2 gap-2.5"
+                      >
+                        <div class="relative font-semibold">
+                          Angré 8ème Tranche
+                        </div>
+                        <img
+                          class="w-[8.2px] h-[4.1px] hidden"
+                          alt=""
+                          src="Icon.svg"
+                        />
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border"></td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="w-full py-3 px-4 text-left text-[10px] text-gray-mid-description"
+                      >
+                        <div class="font-medium inline-block">
+                          Le verset n’est pas trop claire. Mieux préciser le
+                          verset de base.
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative border-neutral-600 h-[79px] flex flex-row items-center justify-start py-3 px-4 gap-2 text-center text-xs text-blackish font-outfit-semibold-12"
+                      >
+                        <a href="details_user.html"
+                          class="rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid flex flex-row items-center justify-center p-3 gap-1"
+                        >
+                          <img
+                            class="w-4 relative h-4 overflow-hidden shrink-0"
+                            alt=""
+                            src="./assets/icons/eye.svg"
+                          />
+                          <div class="w-[23px] relative font-semibold hidden">
+                            Voir
+                          </div>
+                        </a>
+                        <div
+                          class="flex flex-col items-start justify-end gap-1.5 text-left text-sm text-gray-700 font-text-s-medium"
+                        >
+                          <div
+                            class="self-stretch shadow-[0px_1px_2px_rgba(16,_24,_40,_0.04)] rounded-lg bg-base-white border-red-delete border-[2px] border-solid box-border h-10 flex flex-row items-center justify-start p-2.5 gap-3"
+                          >
+                            <img
+                              class="w-5 relative h-5 overflow-hidden shrink-0"
+                              alt=""
+                              src="./assets/icons/delete.svg"
+                            />
+                          </div>
+                          <div
+                            class="w-[59px] relative tracking-[-0.1px] leading-[20px] font-medium hidden"
+                          >
+                            Headline
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-1 px-6 border">
+                      <a class="font-bold">Josianne KONE</a>
+                      <div class="bg-slate-50 rounded-lg w-full">
+                        +225 07 44 55 66 77
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-light-gray-bg flex flex-row items-center justify-center py-1 px-2 box-border text-[10px] text-green-vh"
+                      >
+                        <div class="font-semibold">Djiby 8</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center py-1 px-2 gap-2.5"
+                      >
+                        <div class="relative font-semibold">
+                          Angré 8ème Tranche
+                        </div>
+                        <img
+                          class="w-[8.2px] h-[4.1px] hidden"
+                          alt=""
+                          src="Icon.svg"
+                        />
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border"></td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="w-full py-3 px-4 text-left text-[10px] text-gray-mid-description"
+                      >
+                        <div class="font-medium inline-block">
+                          Le verset n’est pas trop claire. Mieux préciser le
+                          verset de base.
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative rounded bg-stroke-light-blue border-blue border-[1px] border-solid box-border w-full overflow-hidden shrink-0 flex flex-row items-center justify-center py-1 px-2 gap-1 text-left text-[10px] text-blue font-outfit"
+                      >
+                        <div class="relative font-semibold">Bon</div>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div
+                        class="relative border-neutral-600 h-[79px] flex flex-row items-center justify-start py-3 px-4 gap-2 text-center text-xs text-blackish font-outfit-semibold-12"
+                      >
+                        <div
+                          class="rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid flex flex-row items-center justify-center p-3 gap-1"
+                        >
+                          <img
+                            class="w-4 relative h-4 overflow-hidden shrink-0"
+                            alt=""
+                            src="./assets/icons/eye.svg"
+                          />
+                          <div class="w-[23px] relative font-semibold hidden">
+                            Voir
+                          </div>
+                        </div>
+                        <div
+                          class="flex flex-col items-start justify-end gap-1.5 text-left text-sm text-gray-700 font-text-s-medium"
+                        >
+                          <div
+                            class="self-stretch shadow-[0px_1px_2px_rgba(16,_24,_40,_0.04)] rounded-lg bg-base-white border-red-delete border-[2px] border-solid box-border h-10 flex flex-row items-center justify-start p-2.5 gap-3"
+                          >
+                            <img
+                              class="w-5 relative h-5 overflow-hidden shrink-0"
+                              alt=""
+                              src="./assets/icons/delete.svg"
+                            />
+                          </div>
+                          <div
+                            class="w-[59px] relative tracking-[-0.1px] leading-[20px] font-medium hidden"
+                          >
+                            Headline
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Additional rows can be added similarly -->
+                </tbody>
+              </table>
+            </div>
+            <!-- Footer -->
+            <div
+              class="bottom-0 left-64 right-0 w-full flex flex-row items-end justify-between text-left text-xs text-gray-mid-description"
+            >
+              <div class="font-medium">
+                (c) Copyrights, Vases d’Honneur, Tous Droits Réservés, Propriété
+                Privée
+              </div>
+              <div
+                class="flex flex-row items-end justify-start gap-1.5 text-right"
+              >
+                <div class="relative">
+                  <span class="font-medium">Partager l’amour de </span>
+                  <span class="font-extrabold text-goldenrod">CHRIST</span>
+                  <span class="font-medium"> pour changer le monde</span>
+                </div>
+                <img
+                  class="w-[73px] relative h-10 object-cover"
+                  alt=""
+                  src="./assets/img/logo_vh_multi.png"
+                />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+       <!-- start modal-->
+      <div id="userModal" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full px-4 ">
+          <div class="relative top-40 mx-auto shadow-xl rounded-3xl  bg-white w-1/3">
+
+              <div class="flex justify-end p-2">
+                  <button id="closeModal" type="button"
+                      class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clip-rule="evenodd"></path>
+                      </svg>
+                  </button>
+              </div>
+
+              <div class="p-6 pt-0">
+                  <!-- Content Modal -->
+
+                    <!-- Header -->
+                    <div class="flex flex-col items-start justify-start text-[24px] mb-4">
+                      <div class="flex flex-row items-center justify-start gap-2">
+                        <img class="w-6 h-6" alt="" src="./assets/icons/user-circle.svg">
+                        <div class="relative font-semibold text-blueVh">Ajouter un utilisateur</div>
+                      </div>
+                      <div class="text-[12px] text-grayish-middle">
+                        Remplissez les informations de l’utilisateur et confirmez
+                      </div>
+                    </div>
+
+                   <!-- Form Fields -->
+                  <div class="flex flex-col gap-4 text-gray">
+                    
+                    <!-- Profile Image -->
+                    <div class="flex flex-row items-center justify-center relative gap-2.5">
+                      <img class="w-20 h-20 z-0" alt="" src="./assets/icons/ellipse-cricle.svg">
+                      <img class="w-8 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="" 
+                          src="./assets/icons/camera-alt.svg">
+                    </div>
+
+                    <!-- Name and Surname -->
+                    <div class="flex flex-row gap-3">
+                      <div class="flex flex-col gap-1">
+                        <label for="nom" class="font-bold">Nom*</label>
+                        <input id="nom" type="text" placeholder="Ecrivez le nom ici" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                      </div>
+                      <div class="flex flex-col gap-1">
+                        <label for="prenom" class="font-bold">Prénoms*</label>
+                        <input id="prenom" type="text" placeholder="Ecrivez le/les prénoms ici" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                      </div>
+                    </div>
+
+                    <!-- User Type and Category -->
+                    <div class="flex flex-row gap-3">
+
+                      <div class="flex flex-col gap-1">
+                        <label for="typeUtilisateur" class="font-bold">Type d’utilisateur*</label>
+                        <select id="typeUtilisateur" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                          <option>Ecouteur</option>
+                          <option>Noteur</option>
+                          <option>Gestionnaire</option>
+                        </select>
+                      </div>
+
+                      <div class="flex flex-col gap-1">
+                        <label for="categorieUtilisateur" class="font-bold">Catégorie d’utilisateur*</label>
+                        <select id="categorieUtilisateur" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                          <option>User</option>
+                          <option>Admin</option>
+                          <option>Super Admin</option>
+                        </select>
+                      </div>
+
+                    </div>
+
+                    <!-- Phone Number and Email -->
+                    <div class="flex flex-row gap-3">
+
+                      <div class="flex flex-col gap-1">
+                        <label for="telephone" class="font-bold">Numéro de téléphone*</label>
+                        <input id="telephone" type="tel" placeholder="+225 01 02 03 45 67" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                      </div>
+
+                      <div class="flex flex-col gap-1">
+                        <label for="email" class="font-bold">Email*</label>
+                        <input id="email" type="email" placeholder="josianne.kone@gmail.com" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                      </div>
+
+                    </div>
+
+                    <!-- Password -->
+                    <div class="flex flex-col gap-1">
+                      <label for="password" class="font-bold">Mot de passe*</label>
+                      <input id="password" type="password" placeholder="******" class="w-[472px] p-3 rounded-lg border-2 border-stroke-bulto">
+                    </div>
+
+
+
+                    <!-- Country, Origin Entity, Cell, Assigned Entities, and Status -->
+
+                    <div class="flex flex-row gap-3">
+
+                      <div class="flex flex-col gap-1">
+                        <label for="pays" class="font-bold">Pays*</label>
+                          <select id="pays" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                            <option>Côte d'Ivoire</option>
+                          </select>
+                      </div>
+
+                      <div class="flex flex-col gap-1">
+                        <label for="entiteOrigine" class="font-bold">Entité d’origine*</label>
+                          <select id="entiteOrigine" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                            <option>Centre Kodesh</option>
+                          </select>
+                      </div>
+
+                    </div>
+
+                    <div class="flex flex-row gap-3">
+
+                      <div class="flex flex-col gap-1">
+                        <label for="cellule" class="font-bold">Cellule*</label>
+                          <select id="cellule" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                            <option>Djiby 8</option>
+                          </select>
+                      </div>
+
+                      <div class="flex flex-col gap-1">
+                        <label for="statut" class="font-bold">Statut</label>
+                          <select id="statut" class="w-[230px] p-3 rounded-lg border-2 border-stroke-bulto">
+                            <option>En attente</option>
+                          </select>
+                      </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                      <div class="flex flex-row gap-3">
+                        <div class="flex flex-col gap-1">
+                          <label for="entitesAffectees" class="font-bold">Entité(s) affectée(s)*</label>
+                          <div class="flex flex-row flex-wrap gap-1 p-3 rounded-lg border-2 border-stroke-bulto">
+                            <span class="bg-light-stroke py-0.5 px-2 rounded-8xs">Angré 9</span>
+                            <span class="bg-light-stroke py-0.5 px-2 rounded-8xs">Angré 8-2</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                     <div class="flex flex-row w-full gap-2">
+                          <button class="w-full relative [filter:drop-shadow(0px_1px_2px_rgba(0,_0,_0,_0.08))] rounded-lg border-gray-unselected border-[2px] border-solid box-border flex flex-row items-center justify-center py-3 px-6 text-left text-[16px] text-gray-unselected font-outfit">
+                            <div class="relative font-semibold cursor-pointer" id="annulerText">Annuler</div>
+                          </button>
+                          <button class="w-full relative shadow-[0px_1px_2px_rgba(0,_0,_0,_0.08)] rounded-lg bg-blueVh flex flex-row items-center justify-center py-3 px-6 box-border text-left text-[16px] text-white font-outfit">
+                            <div class="relative font-semibold cursor-pointer" id="enregistrerText">Enregistrer</div>
+                          </button>
+                     </div>
+                </div>
+          </div>
+      </div>
+      <!--end modal-->
+  </div>
+<script>
+  const openModal = document.getElementById('openModal');
+  const closeModal = document.getElementById('closeModal');
+  const userModal = document.getElementById('userModal');
+
+  openModal.addEventListener('click', () => {
+    userModal.classList.remove('hidden');
+  });
+
+  closeModal.addEventListener('click', () => {
+    userModal.classList.add('hidden');
+  });
+</script>
+</body>
+</html>

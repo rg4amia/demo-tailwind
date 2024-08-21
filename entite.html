@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/custom.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              stokelightblue: "#E1EFFC",
+              greenVh: "#1D8C6B",
+              grayDescription: "#5F6D7E",
+              "gray-mid-description": "#5f6d7e",
+              jauneVh: "#CFAE1F",
+              blueVh: "#0B85F5",
+              bg: "#F6F7F9",
+              "base-white": "#fff",
+              "stroke-bulto": "#c9dce0",
+              "stroke-light-blue": "#e1effc",
+              "green-vh": "#1d8c6b",
+              "light-gray-bg": "#f6f7f9",
+              "light-background-secondary": "#f2f3f5",
+              "theme-black": "#000",
+              "theme-primary": "#5865f2",
+              "red-vh": "#8A262E",
+              "light-gray": "#e9ebf0",
+              goldenrod: "#cfae1f",
+              "light-stroke": '#dae0e6',
+              "grayish-middle": '#5f6d7e'
+            },
+            fontFamily: {
+              outfit: ["Outfit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-outfit min-h-screen">
+    <div class="flex">
+      <!-- Sidebar -->
+      <div
+        class="fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 overflow-y-auto"
+      >
+        <div class="py-4 px-6">
+          <a href="/" class="flex items-center">
+            <img
+              src="./assets/img/logos/logo.png"
+              alt="Logo"
+              class="w-[136px] h-auto"
+            />
+          </a>
+          <span class="absolute bottom-0 left-20 top-16 text-sm"
+            >Super admins</span
+          >
+        </div>
+
+        <div class="mt-6">
+          <!-- Dashboard Link -->
+          <div class="ml-2 mr-3">
+            <a
+              href="dashboard.html"
+              class="flex items-center px-8 py-2.5 text-grayDescription hover:text-greenVh group"
+              aria-label="Dashboard"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Dashboard Icon"
+                src="./assets/icons/icon-gray-dashboard.svg"
+              />
+              Tableau de bord
+            </a>
+          </div>
+
+          <!-- Enregistrements Link -->
+          <div class="ml-2 mr-3 mt-1">
+            <a
+              href="enregistrement.html"
+              class="flex items-center px-8 py-2.5 text-jauneVh hover:text-greenVh group"
+              aria-label="Enregistrements"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Enregistrements Icon"
+                src="./assets/icons/akouo_icon.png"
+              />
+              Enregistrements
+            </a>
+          </div>
+
+          <!-- Entités Link -->
+          <div class="ml-2 mr-3 mt-1 bg-greenVh rounded-lg">
+            <a
+              href="/"
+              class="flex items-center px-8 py-2.5 text-white hover:text-greenVh group"
+              aria-label="Entités"
+            >
+              <img
+                class="h-5 w-5 mr-2"
+                loading="lazy"
+                alt="Entités Icon"
+                src="./assets/icons/entite_menu.svg"
+              />
+              Entités
+            </a>
+          </div>
+
+          <!-- Utilisateurs Link -->
+          <div class="ml-2 mr-3 mt-1">
+            <a href="users.html"  class="flex items-center px-8 py-2.5 text-blueVh hover:text-greenVh group"  aria-label="Utilisateurs">
+              <svg
+                class="h-5 w-6 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+                />
+              </svg>
+              Utilisateurs
+            </a>
+          </div>
+        </div>
+
+        <div class="ml-8 mr-3 mt-1 absolute bottom-5">
+          <a
+            class="w-[183px] h-10 rounded-lg border-whitesmoke border-[2px] border-solid box-border overflow-hidden flex flex-row items-start justify-start py-3 px-1.5 gap-[5px] leading-[normal] tracking-[normal] cursor-pointer text-left text-[12px] text-blackish font-outfit"
+            id="frameContainer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 relative overflow-hidden shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
+              />
+            </svg>
+
+            <button class="w-[146px] items-center box-border mb-5">
+              Se déconnecter
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="ml-64 flex-1 min-h-screen">
+        <header
+          class="sticky top-0 bg-white z-10 flex justify-between py-3 px-6 space-x-6 border-b border-gray-200"
+        >
+          <!-- User Profile -->
+          <div class="flex items-center gap-3">
+            <img
+              class="w-10 h-10 object-cover"
+              alt="Ellipse"
+              src="./assets/img/ellipse.png"
+            />
+            <div class="flex-col items-start justify-center">
+              <div class="text-grayDescription text-sm">Bienvenue</div>
+              <div class="font-bold text-black text-xl">Joel KOFFI</div>
+            </div>
+            <img
+              class="w-6 h-6"
+              alt="Smiling face with halo"
+              src="./assets/icons/smiling-face-with-halo.png"
+            />
+          </div>
+
+          <!-- Notifications -->
+          <div class="relative">
+            <button
+              class="w-[40px] h-10 flex items-center justify-end bg-jauneVh rounded-full text-sm text-white p-2"
+              aria-label="Notifications"
+            >
+              <svg
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="16"
+                viewBox="0 0 14 16"
+                fill="currentColor"
+              >
+                <path
+                  d="M13.445,7.447A3.185,3.185,0,0,1,14,9.088l-.022.148a3.252,3.252,0,0,1-.774,2.2,4.069,4.069,0,0,1-2.572,1.232,34.465,34.465,0,0,1-7.306,0A4.022,4.022,0,0,1,.8,11.439,3.207,3.207,0,0,1,0,9.249v-.1A3.3,3.3,0,0,1,.6,7.469L.659,7.4A3.035,3.035,0,0,0,1.389,5.99V4.54a.631.631,0,0,1,.653-.381.619.619,0,0,1,.553.507v1.45a.353.353,0,0,1,0,.077A4.166,4.166,0,0,1,1.586,8.151a1.982,1.982,0,0,0-.321,1v.155a2.022,2.022,0,0,0,.482,1.373,2.768,2.768,0,0,0,1.71.788,33.927,33.927,0,0,0,7.073,0,2.773,2.773,0,0,0,1.746-.824,2,2,0,0,0,.46-1.33V9.151a2.056,2.056,0,0,0-.314-1.007,4.175,4.175,0,0,1-1.067-1.957.358.358,0,0,1,0-.077V4.653C11.143,2.527,8.944,1.211,7.03,1.211a4.853,4.853,0,0,0-2.323.584.649.649,0,0,1-.639,0A.595.595,0,0,1,4.093.739,6.108,6.108,0,0,1,6.971,0C9.5,0,12.334,1.732,12.656,4.512v1.45a2.973,2.973,0,0,0,.731,1.408A.538.538,0,0,1,13.445,7.447Zm-6.238,7.3a1.641,1.641,0,0,0,1.072-.624h.007a.647.647,0,0,1,.888-.081.592.592,0,0,1,.084.855,2.926,2.926,0,0,1-4.581,0,.592.592,0,0,1,.084-.855.647.647,0,0,1,.888.081,1.661,1.661,0,0,0,1.558.624Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+              <span
+                class="w-5 h-5 absolute top-0 right-[-7.55%] rounded-full bg-greenVh text-white text-xs border-white border-[2px] flex items-center justify-center"
+              >
+                21
+              </span>
+            </button>
+          </div>
+        </header>
+
+        <main>
+          <div class="flex flex-col items-start m-4" role="group">
+            <div class="flex flex-row justify-between items-center w-full">
+              <div>
+                <div
+                  class="font-outfit text-2xl font-semibold flex items-center"
+                >
+                  <svg
+                    class="h-5 w-5 mr-2 fill-blueVh"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z"
+                    />
+                  </svg>
+                  Liste des entités
+                </div>
+                <p class="text-xs text-gray-mid-description">
+                  Vue générale de toutes les entités
+                </p>
+              </div>
+              <div class="gap-6">
+                <button
+                  class="relative rounded-lg bg-greenVh w-full overflow-hidden flex flex-col items-start justify-start py-2 px-4 box-border cursor-pointer text-left text-[12px] text-white font-outfit"
+                  id="openModal"
+                >
+                  <div class="flex flex-row items-center justify-start gap-2">
+                      <img
+                        class="w-5 relative h-5 overflow-hidden shrink-0"
+                        alt=""
+                        src="./assets/icons/entite_menu.svg"
+                      />
+                    <div class="relative font-semibold">
+                      Créer une entité
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="relative font-outfit m-3 flex">
+              <input
+                type="text"
+                id="seach"
+                name="seach"
+                placeholder="Recherche..."
+                class="w-[400px] px-10 py-2 border border-stokelightblue rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E1EFFC]"
+              />
+
+              <div
+                class="inset-y-0 left-10 pl-3 top-0 flex items-center pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-5 text-grayDescription"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div
+              class="w-full bg-base-white flex flex-row flex-wrap items-center justify-between py-3 gap-3 border mt-2 rounded-lg tracking-[normal] text-left text-xs text-gray-mid-description font-outfit"
+            >
+              <div class="relative text-[16px] font-medium text-black px-4">
+                Liste des entités
+              </div>
+
+               <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>A à Z / Z à A</option>
+              </select>
+
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Envoyé par</option>
+              </select>
+
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Pays</option>
+              </select>
+
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Cellule</option>
+              </select>
+              <select
+                placeholder="Cellule"
+                class="w-[140px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Type d'utilisateur</option>
+              </select>
+
+              <select
+                placeholder="Cellule"
+                class="w-[140px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Catégorie d'utilisateur</option>
+              </select>
+              <select
+                placeholder="Cellule"
+                class="w-[140px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Entité(s) affectée(s)</option>
+              </select>
+              <select
+                placeholder="Cellule"
+                class="w-[100px] rounded-lg bg-base-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden shrink-0 flex flex-col items-center justify-start py-[5px] px-1.5"
+              >
+                <option>Décision</option>
+              </select>
+              <div class="">
+                <svg
+                  class="w-6 h-6 overflow-hidden shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </div>
+
+              <table class="min-w-full bg-white border-t mt-1">
+                <thead>
+                  <tr class="text-xs border-b">
+                    <th class="py-3 px-6 text-left border-r">Nom entité</th>
+                    <th class="py-3 px-6 text-left border-r">Pays</th>
+                    <th class="py-3 px-6 text-left border-r">Zone</th>
+                    <th class="py-3 px-6 text-left border-r">
+                      Type d’entité
+                    </th>
+                    <th class="py-3 px-6 text-left border-r">
+                      Affichage nom
+                    </th>
+                    <th class="py-3 px-6 text-left border-r">
+                      Rattachement
+                    </th>
+                    <th class="py-3 px-6 text-left border-r">Affectation(s)</th>
+                    <th class="py-3 px-6 text-left border-r">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-600 text-xs">
+                  <tr class="">
+                    <td class="py-1 px-6 border">
+                      <b>Kodesh</b>
+                    </td>
+                    <td class="py-1 px-6 border">
+                        <div class="">Côte d'ivoire</div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div class="">Abidjan</div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div class="relative rounded bg-greenVh w-full overflow-hidden flex flex-row items-center justify-center py-1 px-2 box-border text-left text-[10px] text-white font-outfit">
+                        <b class="relative">Centre</b>
+                      </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                      <div class="w-full relative box-border h-[79px] flex flex-col items-center justify-center p-3 text-left text-[10px] text-black font-outfit">
+                        <b class="relative">Centre Kodesh</b>
+                        </div>
+                    </td>
+                    <td class="py-1 px-6 border">
+                        <div class="relative text-[10px] font-semibold font-outfit text-gray-mid-description text-left">Aucune</div>
+                    </td>
+                  
+                    <td class="py-1 px-6 border">
+                      <div class="w-full relative h-[79px] flex flex-row flex-wrap items-center justify-start py-3 px-4 gap-1 text-left text-3xs text-gray-mid-description font-outfit">
+                          <div class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center p-1 gap-2.5">
+                            <div class="relative font-normal">Mohammed S.</div>
+                          </div>
+                          <div class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center p-1 gap-2.5">
+                            <div class="relative font-normal">Liliane S.</div>
+                          </div>
+                          <div class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center p-1 gap-2.5">
+                            <div class="relative font-normal">Gérard K.</div>
+                          </div>
+                          <div class="rounded bg-bg overflow-hidden flex flex-row items-center justify-center p-1 gap-2.5">
+                            <div class="relative font-normal">Thierry N.</div>
+                          </div>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="details_entite.html" class="w-full relative box-border h-[79px] flex flex-row items-center justify-center py-3 px-4 gap-2 text-center text-xs text-blackish font-outfit-semibold-12">
+                        <div class="rounded-lg bg-white border-stroke-bulto border-[2px] border-solid flex flex-row items-center justify-center p-1 gap-1 cursor-pointer" id="pDFButtonContainer">
+                        <img class="w-4 relative h-4 overflow-hidden shrink-0" alt="" src="./assets/icons/eye.svg">
+                        <div class="w-[23px] relative font-semibold hidden">Voir</div>
+                        </div>
+                        <div class="relative text-[10px] font-semibold text-gray-description text-left">Voir</div>
+                      </a>
+                    </td>
+                  </tr>
+                  <!-- Additional rows can be added similarly -->
+                </tbody>
+              </table>
+            </div>
+            <!-- Footer -->
+            <div
+              class="bottom-0 left-64 right-0 w-full flex flex-row items-end justify-between text-left text-xs text-gray-mid-description"
+            >
+              <div class="font-medium">
+                (c) Copyrights, Vases d’Honneur, Tous Droits Réservés, Propriété
+                Privée
+              </div>
+              <div
+                class="flex flex-row items-end justify-start gap-1.5 text-right"
+              >
+                <div class="relative">
+                  <span class="font-medium">Partager l’amour de </span>
+                  <span class="font-extrabold text-goldenrod">CHRIST</span>
+                  <span class="font-medium"> pour changer le monde</span>
+                </div>
+                <img
+                  class="w-[73px] relative h-10 object-cover"
+                  alt=""
+                  src="./assets/img/logo_vh_multi.png"
+                />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+       <!-- start modal-->
+      <div id="userModal" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full px-4 ">
+          <div class="relative top-40 mx-auto shadow-xl rounded-3xl  bg-white w-1/3">
+
+              <div class="flex justify-end p-2">
+                  <button id="closeModal" type="button"
+                      class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clip-rule="evenodd"></path>
+                      </svg>
+                  </button>
+              </div>
+
+              <div class="p-6 pt-0">
+                  <!-- Content Modal -->
+                   <!-- Form Fields -->
+                    <div class="flex flex-col items-start justify-start gap-4">
+                      <div class="flex flex-row items-start justify-between gap-3">
+                          <div class="flex flex-col gap-1">
+                              <label class="relative"><b>Nom entité*</b></label>
+                              <input class="rounded-lg w-[242px]  bg-white border-stroke-bulto border-[2px] border-solid box-border p-3 text-sm text-grayish-middle font-medium-subtitle" type="text" value="Vallon 3">
+                          </div>
+                          <div class="flex flex-col gap-1">
+                              <label class="relative"><b>Pays*</b></label>
+                              <input class="rounded-lg w-[242px]  bg-white border-stroke-bulto border-[2px] border-solid p-3 text-sm text-grayish-middle font-medium-subtitle" type="text" value="Côte d'Ivoire">
+                          </div>
+
+                      </div>
+                      <div class="flex flex-row items-start justify-between gap-3">
+        
+                          <div class="flex flex-col gap-1">
+                            <label for="typeUtilisateur" class="font-bold">Zone*</label>
+                            <select id="typeUtilisateur" class="w-[242px] p-3 rounded-lg border-2 border-stroke-bulto">
+                              <option>Gènève</option>
+                            </select>
+                          </div>
+
+                          <div class="flex flex-col items-start justify-start gap-1">
+                              <label class="relative"><b>Type d’entité*</b></label>
+                               <select id="typeUtilisateur" class="w-[242px] p-3 rounded-lg border-2 border-stroke-bulto">
+                              <option>Gènève</option>
+                            </select>
+                      
+                          </div>
+                      </div>
+                      <div class="flex flex-row items-start justify-start gap-[13px]">
+                          <div class="flex flex-col gap-1">
+                            <label for="typeUtilisateur" class="font-bold">Rattachement*</label>
+                            <select id="typeUtilisateur" class="w-[242px] p-3 rounded-lg border-2 border-stroke-bulto">
+                              <option>Assemblé europe</option>
+                            </select>
+                          </div>
+                           <div class="flex flex-col gap-1">
+                            <label for="typeUtilisateur" class="font-bold">Origine*</label>
+                            <select id="typeUtilisateur" class="w-[242px] p-3 rounded-lg border-2 border-stroke-bulto">
+                              <option>Centre Kodesh</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div class="flex flex-row items-start justify-start">
+
+                            <div class="flex flex-col items-start justify-start gap-1">
+                                <label for="typeUtilisateur" class="font-bold">Affectation(s)*</label>
+                                <select id="typeUtilisateur" class="w-[497px] p-3 rounded-lg border-2 border-stroke-bulto">
+                                  <option>Fabrice B., Sanny K., Joelle M.</option>
+                                </select>
+                                <!--label class="relative"><b>Affectation(s)*</b></label>
+                                <div class="w-[497px] rounded-lg bg-white border-stroke-bulto border-[2px] border-solid box-border overflow-hidden flex flex-row items-center justify-between p-3 text-sm text-grayish-middle">
+                                    <textarea class="w-[439px] flex flex-row flex-wrap items-center justify-start gap-1 border-none focus:outline-none" rows="1">Fabrice B., Sanny K., Joelle M.</textarea>
+                                    <img class="w-4 relative h-4 overflow-hidden shrink-0" alt="" src="chevron/down.svg">
+                                </div-->
+                            </div>
+                      </div>
+                    </div>
+                    <div class="w-[497px] flex flex-col items-start justify-start gap-2">
+                        <label class="relative font-medium">Adresse sur la carte</label>
+                        <div class="flex flex-col items-start justify-start gap-1">
+                            <label class="relative"><b>Lien google maps de l’adresse *</b></label>
+                            <input class="w-[497px] rounded-lg bg-white border-stroke-bulto border-[2px] border-solid box-border p-3 text-sm text-grayish-middle font-medium-subtitle" type="text" value="https://maps.app.goo.gl/xrzfQ8y8GDkU5i1HA">
+                        </div>
+                        <div class="w-[497px] relative h-[247px] text-[12px] text-black">
+                            <img class="absolute top-[0px] left-[0px] rounded-xl w-[497px] h-[247px] object-cover" alt="" src="./assets/img/map_demo.png">
+                            <div class="absolute top-[37px] left-[76px] w-[236px] h-[92.3px]">
+                                <img class="absolute h-[42.58%] w-[13.56%] top-[57.42%] right-[86.44%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full" alt="" src="./assets/icon/marquer.svg">
+                                <div class="absolute top-[0px] left-[8px] rounded-lg bg-gray-200 overflow-hidden flex flex-row items-center justify-center pt-1.5 px-3 pb-3">
+                                    <input class="w-[204px] relative font-medium inline-block shrink-0 border-none bg-transparent focus:outline-none" type="text" value="Vallon, à coté de Thanon Namanko, Résidence Rayan">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="w-[497px] flex flex-row items-start justify-between text-gray-unselected mt-5">
+                        <div class="w-60 [filter:drop-shadow(0px_1px_2px_rgba(0,_0,_0,_0.08))] rounded-lg border-gray-unselected border-[2px] border-solid box-border flex flex-row items-center justify-center py-3 px-6">
+                            <div class="relative font-semibold cursor-pointer" id="annulerText">Annuler</div>
+                        </div>
+                        <div class="w-60 shadow-[0px_1px_2px_rgba(0,_0,_0,_0.08)] rounded-lg bg-green-vh flex flex-row items-center justify-center py-3 px-6 box-border text-white">
+                            <div class="relative font-semibold">Enregistrer</div>
+                        </div>
+                </div>
+          </div>
+          </div>
+      </div>
+      <!--end modal-->
+  </div>
+<script>
+  const openModal = document.getElementById('openModal');
+  const closeModal = document.getElementById('closeModal');
+  const userModal = document.getElementById('userModal');
+
+  openModal.addEventListener('click', () => {
+    userModal.classList.remove('hidden');
+  });
+
+  closeModal.addEventListener('click', () => {
+    userModal.classList.add('hidden');
+  });
+</script>
+</body>
+</html>
